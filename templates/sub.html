@@ -20,6 +20,96 @@
     <link href="../static/sub.css" rel="stylesheet">
 <!--    타이틀-->
     <title>trabucket/여행지</title>
+    <script>
+        let urlcode =document.location.href.split("/")[4];
+        console.log(code)
+
+         $(document).ready(function (){
+               bucket_listing();
+               show_info();
+            });
+
+         function bucket_listing() {
+             $.ajax({
+                 type: "GET",
+                 url: "/bucket",
+                 data: {},
+                 success: function (response) {
+                     let rows = response['buckets']
+                     for (let i = 0; i < rows.length; i++) {
+                         let bucket = rows[i]['bucket']
+                         let done = rows[i]['done']
+                         let code = rows[i]['code']
+                         let num = rows[i]['num']
+                         let temp_html = ``
+                         if (urlcode === code && done === 0) {
+                             temp_html =  `<li>
+                                                <img class="heart" src="../static/HeartFocused.png"/>
+                                                <h5>15</h5>
+                                                <h2>${bucket}</h2>
+                                                <button onclick="done_bucket(${num})" type="button" class="btn_done">완료!</button>
+                                                <img src="../static/btn_delete.png"/>
+                                            </li>`
+                         }
+                         if (urlcode === code && done === 1) {
+                             temp_html =   `<li>
+                                                <img class="heart" src="../static/HeartFocused.png"/>
+                                                <h5>15</h5>
+                                                <h2 class="cancled">${bucket}</h2>
+                                                <button onclick="cancle_bucket(${num})" type="button" class="btn_cancle">취소!</button>
+                                                <img src="../static/btn_delete.png"/>
+                                            </li>`
+                         }
+                         $("#bucketlist").append(temp_html)
+                     }
+                 }
+             });
+         }
+         function show_info() {
+             $.ajax({
+                type: "GET",
+                url: "/info",
+                data: {},
+                 success: function (response) {
+                    let rows = response['info_list']
+                     for (let i = 0; i < rows.length; i++) {
+                        let code = rows[i]['code']
+                        let image = rows[i]['image']
+                        let title = rows[i]['title']
+                         let sub_title = rows[i]['sub_title']
+
+                     if(urlcode === code) {
+                         let temp_html =`
+                         <div className="attr_inbox" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('${image}')">
+                             <div className="attr_desc">
+                                 <p className="attr_category">${sub_title}</p>
+                                 <p className="attr_title">${title}</p>
+                             </div>
+                         </div>
+                         `
+                         $("#attr_box").append(temp_html)
+                         // let temp_img = `
+                         //     <img src=${image}>
+                         // `
+                         // let temp_title = `
+                         //     <h1>${title}</h1>
+                         // `
+                         //  let temp_time = `
+                         //     <p class="info-cont">${time}</p>
+                         // `
+                         // let temp_place = `
+                         //     <p class="info-cont">${place}</p>
+                         // `
+                         // $("#img-area").append(temp_img)
+                         // $("#title").append(temp_title)
+                         // $("#time").append(temp_time)
+                         // $("#place").append(temp_place)
+                     }
+                 }
+                }
+             });
+         }
+    </script>
 </head>
 
 <body>
@@ -27,13 +117,15 @@
         <a href="../main"><img src="../static/trabucketLogo.png"></a>
     </div>
 
-    <div class="wrap">
-        <div class="attr_box">
-            <div class="attr_desc">
-                <p class="attr_category">겨울여행</p>
-                <p class="attr_title">글글글 타이틀 타이틀 글글글 타이틀 타이틀 글글글 타이틀 타이틀 글글글 타이틀 타이틀</p>
-            </div>
+    <div class="wrap" >
+        <div class="attr_box" id="attr_box">
         </div>
+<!--        <div style="background-image: url('${image')">-->
+<!--            <div class="attr_desc" >-->
+<!--                <p class="attr_category">겨울여행</p>-->
+<!--                <p class="attr_title">글글글 타이틀 타이틀 글글글 타이틀 타이틀 글글글 타이틀 타이틀 글글글 타이틀 타이틀</p>-->
+<!--            </div>-->
+<!--        </div>-->
 
         <div class="bucket_wrap">
             <div class="bucket_post">
@@ -44,28 +136,7 @@
                     <span class="input-group-text" id="basic-addon2">입력하기</span>
                 </div>
             </div>
-            <div class="buckets">
-                <li>
-                    <img class="heart" src="../static/HeartFocused.png"/>
-                    <h5>15</h5>
-                    <h2>dasdfasdfasdf </h2>
-                    <button onclick="done_bucket(${num})" type="button" class="btn_done">완료!</button>
-                    <img src="../static/btn_delete.png"/>
-                </li>
-                <li>
-                    <img class="heart" src="../static/HeartFocused.png"/>
-                    <h5>15</h5>
-                    <h2 class="cancled">dasdfasdfasdf </h2>
-                    <button onclick="cancle_bucket(${num})" type="button" class="btn_cancle">취소!</button>
-                    <img src="../static/btn_delete.png"/>
-                </li>
-                <li>
-                    <img class="heart" src="../static/Heart.png"/>
-                    <h5>15</h5>
-                    <h2 class="cancled">dasdfasdfasdf </h2>
-                    <button onclick="cancle_bucket(${num})" type="button" class="btn_cancle">취소!</button>
-                    <img src="../static/btn_delete.png"/>
-                </li>
+            <div class="buckets" id="bucketlist">
             </div>
         </div>
     </div>
