@@ -36,8 +36,9 @@
         height: 100%;
         background-position: center;
         background-size: cover;
+        border-radius: 20px;
         }
-.attr_desc{
+.attr_info{
         position: relative;
         left: 22px;
         top: 28px;
@@ -49,14 +50,16 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        padding: 10px 20px;
+        padding: 10px 10px;
 
+        font-size: 15px;
+        font-weight: 200;
         width: fit-content;
         height: 40px;
         left: 22px;
         top: 28px;
 
-        border: 1px solid #FFFFFF;
+        border: 0.5px solid #FFFFFF;
         border-radius: 100px;
         }
 .attr_title {
@@ -65,8 +68,24 @@
         font-weight: 400;
         font-size: 24px;
         line-height: 36px;
-        margin-top: 30px;
+        margin-top: 25px;
         }
+.attr_desc {
+        color: #FFFFFF;
+        width: 90%;
+        font-weight: 200;
+        font-size: 18px;
+        line-height: 27px;
+        /*margin-top: 5px;*/
+}
+.attr_tag {
+        color: #FFFFFF;
+        width: 60%;
+        font-weight: 100;
+        font-size: 12px;
+        line-height: 23px;
+        opacity: 70%;
+}
 
 .bucket_wrap {
         margin-left: 40px;
