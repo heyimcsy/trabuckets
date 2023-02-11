@@ -1,0 +1,183 @@
+*       {
+        font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+        }
+.header {
+        width: 100%;
+        height: 60px;
+        background-color: #50E0B5;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: stretch;
+        padding: 0 20px;
+        margin-bottom: 30px;
+        }
+.header > a > img {
+        width: 200px;
+        }
+.wrap   {
+        width: 90%;
+        max-width: 1500px;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: first;
+        }
+.attr_box {
+        width: 30%;
+        max-width: 340px;
+        height: 700px;
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://search.pstatic.net/common?src=https%3A%2F%2Fsearch.pstatic.net%2Fcommon%2F%3Fsrc%3Dhttp%253A%252F%252Fblogfiles.naver.net%252FMjAyMzAxMjRfMTQ2%252FMDAxNjc0NTAzNjk4NTI1.ash1oqEiKgTt0GU_zq8v8qHjHNgRjSSriLm8ev2UcwAg.Vs6KglDDTXp1OuX6VE12RkjkeM2HYLeF8wDaNWI1Zd8g.JPEG.cormongolia%252F142.jpg%26type%3Dsc960_832&type=f1040_576_domesearch');
+        background-position: center;
+        background-size: cover;
+        }
+.attr_desc{
+        position: relative;
+        left: 22px;
+        top: 28px;
+        }
+.attr_category {
+        color: #FFFFFF;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
+
+        width: fit-content;
+        height: 40px;
+        left: 22px;
+        top: 28px;
+
+        border: 1px solid #FFFFFF;
+        border-radius: 100px;
+        }
+.attr_title {
+        color: #FFFFFF;
+        width: 90%;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 36px;
+        margin-top: 30px;
+        }
+
+.bucket_wrap {
+        margin-left: 40px;
+        width: 100%;
+        /*display: flex;*/
+        /*flex-direction: column;*/
+        /*justify-content: right;*/
+        /*align-items: baseline;*/
+        }
+.bucket_post {
+        width: 100%;
+        height: 130px;
+        background: #F7F7F7;
+        border-radius: 20px;
+        padding: 20px 30px 30px 30px;
+        }
+.bucket_post > p {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 25px;
+        color: #323232;
+        }
+
+/*.form-control {*/
+/*        background: #EAEAEA;*/
+/*        color: #BFBFBF;*/
+/*        font-weight: 300;*/
+/*        font-size: 16px;*/
+/*}*/
+.input-group-text {
+        background: #50E0B5;
+        color: #FFFFFF;
+        font-weight: 500;
+        border-color: #50E0B5;
+}
+.buckets {
+        width: 100%;
+        height: content-box;
+        background: #ffffff;
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+        margin-top: 40px;
+        padding: 30px;
+}
+.buckets > li {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+        min-height: 48px;
+    }
+.buckets > li > h2 {
+        max-width: 75%;
+        font-size: 18px;
+        font-weight: 300;
+        margin-right: auto;
+        margin-bottom: 0px;
+    }
+.buckets > li > h5 {
+        color: #50E0B5;
+        font-size: 18px;
+        font-weight: 300;
+        margin-right: 22px;
+        margin-bottom: 0px;
+    }
+.heart {
+        margin-right: 10px;
+}
+.btn_done {
+        color: #50E0B5;
+        background-color: transparent;
+        border-color: #50E0B5;
+        box-sizing: border-box;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 10px 20px;
+        margin-right: 10px;
+
+        width: border-box;
+        height: 40px;
+
+        border: 1px solid #50E0B5;
+        border-radius: 5px;
+        font-weight: 500;
+}
+.btn_cancle {
+        color: #F68A8A;
+        background-color: transparent;
+        border-color: #F68A8A;
+        box-sizing: border-box;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 10px 20px;
+        margin-right: 10px;
+
+        width: border-box;
+        height: 40px;
+
+        border: 1px solid #F68A8A;
+        border-radius: 5px;
+        font-weight: 500;
+}
+
+.cancled {
+        max-width: 75%;
+        font-size: 18px;
+        font-weight: 300;
+        text-decoration-line: line-through;
+        margin-right: auto;
+        margin-bottom: 0px;
+    }
